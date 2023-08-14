@@ -1,12 +1,18 @@
 var at = document.getElementById.bind(document);
 
+// Получаем ссылку на элемент видео
+var videoElement = document.getElementById('video');
+
+// Устанавливаем громкость на половину (0.5)
+videoElement.volume = 0.15;
+
 window.addEventListener("DOMContentLoaded", () => {
 	at("status_text").innerHTML = "loading";
 });
 
 window.addEventListener("load", () => {
 	setTimeout(() => {
-		if (!window.music.paused) { at("status_text").innerHTML = ""; return; }
+		if (!window.video.paused) { at("status_text").innerHTML = ""; return; }
 		at("status_text").innerHTML = "click to play";
 		at("status_text").classList.add("begin");
 	}, 100);
@@ -495,6 +501,7 @@ this.Element&&Element.prototype.attachEvent&&!Element.prototype.addEventListener
 	root.Particle = Particle;
   }(window));
 
+
   var render = 0;
   
   window.addEventListener('load', function() {
@@ -506,7 +513,7 @@ this.Element&&Element.prototype.attachEvent&&!Element.prototype.addEventListener
 		hue = 0, particles = [], resize,
 		width, height, bounds = new Vector3D(0, 0, 0),
 		settings = {
-		  particleNum: 7500,
+		  particleNum: 20000,
 		  fadeOverlay: true,
 		  rotateColor: true,
 		  staticColorString: 'rgba(255, 255, 255, 1)'
